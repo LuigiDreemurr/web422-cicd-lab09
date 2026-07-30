@@ -14,13 +14,13 @@ jobs:
         uses: actions/setup-node@v4
 
       - name: Install dependencies from the lock file 
-         run: npm ci
+        run: npm ci
 
       - name: Lint
-         run: npm run lint
+        run: npm run lint
 
       - name: Unit tests
-         run: npm run test:ci
+        run: npm run test:ci
 
       - name: End-to-end tests
         uses: cypress-io/github-action@v6
@@ -28,6 +28,7 @@ jobs:
           install: false 
           build: npm run build
           start: npm start 
+          wait-on: 'http://localhost:3000'
           
 
   
