@@ -4,7 +4,7 @@ import { authenticateUser } from "@/lib/authenticate";
 
 export default function Login() {
   const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
+  const [pass, setPassword] = useState("");
   const [warning, setWarning] = useState("");
   const router = useRouter();
 
@@ -13,7 +13,7 @@ export default function Login() {
     setWarning("");
 
     try {
-      await authenticateUser(userName, password);
+      await authenticateUser(userName, pass);
       router.push("/vehicles");
     } catch (err) {
       setWarning(err.message);
